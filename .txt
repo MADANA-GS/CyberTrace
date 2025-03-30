@@ -1,0 +1,1103 @@
+Alternative Color Palette:
+
+Deep charcoal (#212529) - A softer alternative to pure black, professional and serious
+Steel blue (#3A506B) - Conveys security and stability
+Midnight blue (#0B3C5D) - Professional with a tech feel
+Sage green (#4CB944) - For success states and security confirmations
+Crimson (#D62839) - For warnings and critical alerts
+Light platinum (#EAEAEA) - For light backgrounds and text on dark surfaces
+
+For Dark Theme:
+
+Background: Deep charcoal (#212529)
+Text: Light platinum (#EAEAEA)
+Accents: Terminal green (#1EFF8E) for code and data visualizations
+
+For Light Theme:
+
+Background: Very light gray (#F8F9FA)
+Text: Deep charcoal (#212529)
+Accents: Midnight blue (#0B3C5D)
+
+const internetMilestones = [
+    {
+      year: "1957",
+      title: "Sputnik Launch",
+      description: "The Soviet Union launches Sputnik, triggering the U.S. to create ARPA (Advanced Research Projects Agency), which later led to ARPANET.",
+      impact: "Catalyzed U.S. investment in advanced technology research",
+      icon: "🛰️"
+    }
+
+
+ {
+      year: "1962",
+      title: "RAND Paper on Distributed Networks",
+      description: "Paul Baran at RAND Corporation publishes 'On Distributed Communications Networks,' introducing the concept of packet switching.",
+      impact: "Provided theoretical foundation for resilient network architecture",
+      icon: "📝"
+    },
+    {
+      year: "1965",
+      title: "Packet Switching",
+      description: "Paul Baran, Donald Davies, and Leonard Kleinrock develop packet switching, the fundamental technology behind internet communications.",
+      impact: "Created the theoretical foundation for data sharing between computers",
+      icon: "📦"
+    },
+    {
+      year: "1966",
+      title: "ARPANET Planning",
+      description: "Lawrence Roberts publishes the ARPANET plan, outlining the first packet-switching computer network.",
+      impact: "Set the blueprint for the first implementation of an internet-like network",
+      icon: "📋"
+    },
+    {
+      year: "1968",
+      title: "Interface Message Processor",
+      description: "BBN awarded contract to build the Interface Message Processor (IMP), the first network router.",
+      impact: "Created the hardware foundation for ARPANET",
+      icon: "🔌"
+    },
+    {
+      year: "1969",
+      title: "ARPANET",
+      description: "First network connection established between computers at UCLA and Stanford Research Institute (SRI).",
+      impact: "Marked the birth of the internet as we know it today",
+      icon: "🖥️"
+    },
+    {
+      year: "1970",
+      title: "ARPANET Cross-Country",
+      description: "ARPANET expanded coast to coast in the United States with nodes at BBN, MIT, Harvard, and Systems Development Corporation.",
+      impact: "Demonstrated long-distance digital networking viability",
+      icon: "🗺️"
+    },
+    {
+      year: "1971",
+      title: "First Email",
+      description: "Ray Tomlinson sends the first email between two computers and introduces the @ symbol for addressing.",
+      impact: "Revolutionized digital communication, establishing email as the internet's first killer app",
+      icon: "✉️"
+    },
+    {
+      year: "1972",
+      title: "ARPANET Public Demonstration",
+      description: "First public demonstration of ARPANET at the International Computer Communication Conference.",
+      impact: "Introduced networking concepts to the broader technical community",
+      icon: "🎭"
+    },
+    {
+      year: "1972",
+      title: "International Connections",
+      description: "ARPANET establishes its first international connections to University College London in the UK and NORSAR in Norway.",
+      impact: "Began the global expansion of computer networking",
+      icon: "🌍"
+    },
+    {
+      year: "1973",
+      title: "TCP/IP Concept",
+      description: "Vint Cerf and Bob Kahn publish their initial paper on Transmission Control Protocol, laying the groundwork for modern internet protocols.",
+      impact: "Created the architecture allowing different networks to communicate seamlessly",
+      icon: "🌐"
+    },
+    {
+      year: "1974",
+      title: "Telenet",
+      description: "Telenet, the first commercial packet-switching network and civilian version of ARPANET, is introduced.",
+      impact: "Commercialized packet-switching technology for business applications",
+      icon: "💼"
+    },
+    {
+      year: "1976",
+      title: "UUCP",
+      description: "UNIX-to-UNIX Copy Protocol (UUCP) is developed at AT&T Bell Labs, enabling file transfers between UNIX systems.",
+      impact: "Enabled the creation of early community networks like Usenet",
+      icon: "📁"
+    },
+    {
+      year: "1977",
+      title: "First Modem",
+      description: "First commercial modem, the Hayes 80-103A Micromodem, is released for personal computers.",
+      impact: "Brought networking capabilities to personal computer users",
+      icon: "📞"
+    },
+    {
+      year: "1978",
+      title: "TCP Split",
+      description: "TCP is split into TCP and IP (Internet Protocol), creating the fundamental protocol suite used today.",
+      impact: "Refined the architecture of internet communications",
+      icon: "🧩"
+    },
+    {
+      year: "1979",
+      title: "USENET",
+      description: "USENET, an early discussion system, is created by Tom Truscott and Jim Ellis at Duke University.",
+      impact: "Created one of the first global online communities and discussion forums",
+      icon: "💬"
+    },
+    {
+      year: "1980",
+      title: "ENQUIRE",
+      description: "Tim Berners-Lee creates ENQUIRE, a personal database project that was a precursor to the World Wide Web.",
+      impact: "Planted the seeds for hypertext systems and the web",
+      icon: "🔗"
+    },
+    {
+      year: "1981",
+      title: "BITNET",
+      description: "BITNET (Because It's Time Network) established, connecting academic mainframe computers.",
+      impact: "Expanded academic networking beyond ARPANET institutions",
+      icon: "🎓"
+    },
+    {
+      year: "1982",
+      title: "SMTP",
+      description: "Simple Mail Transfer Protocol (SMTP) is introduced, standardizing email transmission across the internet.",
+      impact: "Unified email communications and systems",
+      icon: "📨"
+    },
+    {
+      year: "1983",
+      title: "TCP/IP Adoption",
+      description: "ARPANET officially switches to TCP/IP protocol suite, establishing the standard for all internet communications.",
+      impact: "Unified diverse networks under a common language, enabling global connectivity",
+      icon: "🔄"
+    },
+    {
+      year: "1983",
+      title: "Berkeley Sockets",
+      description: "Berkeley Sockets API is introduced in BSD UNIX, making network programming more accessible.",
+      impact: "Simplified network application development for programmers",
+      icon: "🧰"
+    },
+    {
+      year: "1984",
+      title: "Domain Name System",
+      description: "Paul Mockapetris and Jon Postel create the Domain Name System (DNS), introducing the hierarchical naming system.",
+      impact: "Created the foundation for the internet addressing system",
+      icon: "📚"
+    },
+    {
+      year: "1984",
+      title: "JANET",
+      description: "Joint Academic Network (JANET) launches in the UK, connecting higher education institutions.",
+      impact: "Expanded academic networking internationally",
+      icon: "🇬🇧"
+    },
+    {
+      year: "1985",
+      title: "Domain Name System",
+      description: "The Domain Name System (DNS) is implemented, introducing domain extensions like .com, .org, and .edu.",
+      impact: "Made the internet more accessible by replacing numerical addresses with memorable names",
+      icon: "🏷️"
+    },
+    {
+      year: "1986",
+      title: "NSFNET",
+      description: "National Science Foundation Network (NSFNET) established as a backbone for academic internet, initially connecting supercomputer centers.",
+      impact: "Created high-speed infrastructure for research networks",
+      icon: "⚡"
+    },
+    {
+      year: "1987",
+      title: "UUNET",
+      description: "UUNET founded as one of the first commercial Internet Service Providers (ISPs).",
+      impact: "Began commercialization of internet access services",
+      icon: "🏢"
+    },
+    {
+      year: "1988",
+      title: "Internet Relay Chat",
+      description: "Jarkko Oikarinen develops Internet Relay Chat (IRC), enabling real-time text conversations.",
+      impact: "Pioneered real-time digital communication and online chat",
+      icon: "💭"
+    },
+    {
+      year: "1988",
+      title: "Morris Worm",
+      description: "The Morris Worm, one of the first computer worms, infects approximately 10% of all internet-connected computers.",
+      impact: "Highlighted security vulnerabilities and led to first cybersecurity initiatives",
+      icon: "🐛"
+    },
+    {
+      year: "1989",
+      title: "Commercial Internet",
+      description: "First commercial internet service providers emerge as ARPANET transitions to commercial use.",
+      impact: "Began transition from government/academic to commercial internet",
+      icon: "💰"
+    },
+    {
+      year: "1989",
+      title: "World Wide Web Proposal",
+      description: "Tim Berners-Lee at CERN proposes the concept of a hyperlinked information system that becomes the World Wide Web.",
+      impact: "Created the conceptual framework for sharing information globally through hyperlinks",
+      icon: "🕸️"
+    },
+    {
+      year: "1990",
+      title: "ARPANET Decommissioned",
+      description: "ARPANET is officially decommissioned, marking the end of the original internet backbone.",
+      impact: "Symbolized transition from military to civilian internet infrastructure",
+      icon: "🏁"
+    },
+    {
+      year: "1990",
+      title: "First Web Browser",
+      description: "Tim Berners-Lee develops WorldWideWeb, the first web browser and editor, along with HTTP protocol.",
+      impact: "Created the technical foundation for web browsing",
+      icon: "🌐"
+    },
+    {
+      year: "1991",
+      title: "First Website",
+      description: "Tim Berners-Lee publishes the first website at CERN, explaining the World Wide Web project.",
+      impact: "Demonstrated the potential of the web for information sharing",
+      icon: "📄"
+    },
+    {
+      year: "1991",
+      title: "Gopher Protocol",
+      description: "The Gopher protocol is released at the University of Minnesota, providing an alternative to the web for document retrieval.",
+      impact: "Offered an early hierarchical document retrieval system before the web gained dominance",
+      icon: "🦫"
+    },
+    {
+      year: "1992",
+      title: "MBONE",
+      description: "Multicast Backbone (MBONE) established for supporting IP multicast transmissions like audio and video.",
+      impact: "Pioneered internet broadcasting and multimedia transmission",
+      icon: "📺"
+    },
+    {
+      year: "1992",
+      title: "Internet Society",
+      description: "Internet Society (ISOC) is founded to provide leadership in internet-related standards, education, and policy.",
+      impact: "Established governance and standardization framework for internet development",
+      icon: "🏛️"
+    },
+    {
+      year: "1993",
+      title: "Mosaic Browser",
+      description: "NCSA Mosaic, the first popular graphical web browser, is released, making the web accessible to non-technical users.",
+      impact: "Democratized internet access and laid groundwork for the dot-com boom",
+      icon: "🔍"
+    },
+    {
+      year: "1993",
+      title: "White House Online",
+      description: "The White House launches its website and President Clinton establishes whitehouse.gov email.",
+      impact: "Legitimized the internet as a communications medium for government",
+      icon: "🏛️"
+    },
+    {
+      year: "1994",
+      title: "Netscape & E-commerce",
+      description: "Netscape Navigator is released and the first secure online transactions become possible with SSL encryption.",
+      impact: "Established trust in online transactions, paving the way for e-commerce",
+      icon: "🛒"
+    },
+    {
+      year: "1994",
+      title: "W3C",
+      description: "The World Wide Web Consortium (W3C) is founded by Tim Berners-Lee to develop web standards.",
+      impact: "Created the organization responsible for web standardization and interoperability",
+      icon: "📏"
+    },
+    {
+      year: "1994",
+      title: "First Banner Ad",
+      description: "HotWired runs the first banner advertisement on the web, purchased by AT&T.",
+      impact: "Established the digital advertising model that would finance much of the internet",
+      icon: "📢"
+    },
+    {
+      year: "1995",
+      title: "Dot-com Boom Begins",
+      description: "Companies like Amazon, eBay, and Yahoo! are founded, while Internet Explorer enters the browser market.",
+      impact: "Started the commercialization of the internet and the first internet economy",
+      icon: "📈"
+    },
+    {
+      year: "1995",
+      title: "JavaScript",
+      description: "Netscape introduces JavaScript (initially called LiveScript), bringing interactivity to web pages.",
+      impact: "Added programming capabilities to web browsers, enabling dynamic websites",
+      icon: "📜"
+    },
+    {
+      year: "1995",
+      title: "Wiki Invention",
+      description: "Ward Cunningham creates the first wiki, enabling collaborative content editing online.",
+      impact: "Pioneered collaborative knowledge creation, later leading to Wikipedia",
+      icon: "📝"
+    },
+    {
+      year: "1996",
+      title: "Internet2 Project",
+      description: "Research and education network launched to develop advanced network technologies and applications.",
+      impact: "Advanced high-speed networking technologies for research and education",
+      icon: "🔬"
+    },
+    {
+      year: "1996",
+      title: "Internet Phone",
+      description: "VocalTec introduces Internet Phone, the first widely available Voice over IP (VoIP) software.",
+      impact: "Began the transition of voice communication from circuit-switched to packet-switched networks",
+      icon: "📞"
+    },
+    {
+      year: "1996",
+      title: "Flash Introduced",
+      description: "Macromedia Flash (originally FutureSplash) is released, enabling animations and interactive applications on the web.",
+      impact: "Transformed web multimedia and interactive content for a decade",
+      icon: "⚡"
+    },
+    {
+      year: "1997",
+      title: "Wi-Fi Standard",
+      description: "The IEEE 802.11 standard (Wi-Fi) is released, enabling wireless networking.",
+      impact: "Freed internet connections from physical cables, enabling mobility",
+      icon: "📶"
+    },
+    {
+      year: "1997",
+      title: "Six Degrees",
+      description: "Six Degrees launches as the first recognizable social networking site.",
+      impact: "Created the template for social media platforms that followed",
+      icon: "👥"
+    },
+    {
+      year: "1997",
+      title: "Weblog Term Coined",
+      description: "Jorn Barger coins the term 'weblog' (later shortened to 'blog') for logging the web.",
+      impact: "Named the phenomenon that would democratize publishing and journalism",
+      icon: "📔"
+    },
+    {
+      year: "1998",
+      title: "Google Launches",
+      description: "Larry Page and Sergey Brin launch Google, revolutionizing how information is found online.",
+      impact: "Transformed information retrieval with PageRank algorithm, making the vast web searchable",
+      icon: "🔎"
+    },
+    {
+      year: "1998",
+      title: "XML 1.0",
+      description: "XML 1.0 becomes a W3C recommendation, providing a standard for encoding documents electronically.",
+      impact: "Created foundation for structured data exchange on the web",
+      icon: "🗂️"
+    },
+    {
+      year: "1998",
+      title: "ICANN Formation",
+      description: "Internet Corporation for Assigned Names and Numbers (ICANN) is established to coordinate domain names and IP addresses.",
+      impact: "Created governance structure for critical internet resources",
+      icon: "🌐"
+    },
+    {
+      year: "1999",
+      title: "Napster",
+      description: "Napster launches, pioneering peer-to-peer file sharing and disrupting the music industry.",
+      impact: "Triggered debate on digital rights and transformed media distribution",
+      icon: "🎵"
+    },
+    {
+      year: "1999",
+      title: "Blogger Platform",
+      description: "Blogger platform launches, simplifying blog creation and publishing for non-technical users.",
+      impact: "Democratized web publishing for the masses",
+      icon: "✍️"
+    },
+    {
+      year: "1999",
+      title: "Mobile Internet",
+      description: "First mobile internet services launch in Japan with i-mode by NTT DoCoMo.",
+      impact: "Started the shift toward mobile internet consumption",
+      icon: "📱"
+    },
+    {
+      year: "2000",
+      title: "Dot-com Crash",
+      description: "The speculative bubble in internet-based companies bursts, leading to a market correction.",
+      impact: "Reset expectations and business models, leading to more sustainable internet businesses",
+      icon: "💥"
+    },
+    {
+      year: "2000",
+      title: "RSS 0.92",
+      description: "RSS (Really Simple Syndication) gains widespread adoption, enabling content syndication across websites.",
+      impact: "Transformed how content was distributed and consumed online",
+      icon: "📰"
+    },
+    {
+      year: "2001",
+      title: "Wikipedia Launch",
+      description: "Wikipedia launches, creating a collaborative, community-edited encyclopedia.",
+      impact: "Revolutionized knowledge creation and distribution",
+      icon: "📚"
+    },
+    {
+      year: "2001",
+      title: "BitTorrent",
+      description: "Bram Cohen creates BitTorrent protocol, enabling efficient peer-to-peer file sharing.",
+      impact: "Changed large file distribution and influenced content delivery networks",
+      icon: "🔄"
+    },
+    {
+      year: "2002",
+      title: "Creative Commons",
+      description: "Creative Commons licensing system launches, providing flexible copyright for digital content.",
+      impact: "Enabled legal sharing and reuse of digital content",
+      icon: "©️"
+    },
+    {
+      year: "2002",
+      title: "Friendster",
+      description: "Friendster launches as an early social networking site, gaining millions of users.",
+      impact: "Pioneered social networking concepts before Facebook",
+      icon: "👫"
+    },
+    {
+      year: "2003",
+      title: "Social Media Emergence",
+      description: "LinkedIn launches, followed by MySpace, marking the beginning of social networking platforms.",
+      impact: "Began reshaping human interaction and communication patterns globally",
+      icon: "👥"
+    },
+    {
+      year: "2003",
+      title: "CAN-SPAM Act",
+      description: "U.S. passes the CAN-SPAM Act, establishing the first national standards for commercial email.",
+      impact: "Created legal framework for combating spam email",
+      icon: "⚖️"
+    },
+    {
+      year: "2003",
+      title: "Skype Launch",
+      description: "Skype launches, offering free voice calling over the internet and later video calls.",
+      impact: "Disrupted traditional telecommunications with VoIP technology",
+      icon: "🎧"
+    },
+    {
+      year: "2004",
+      title: "Web 2.0",
+      description: "The term 'Web 2.0' gains popularity, describing interactive websites with user-generated content. Facebook launches at Harvard.",
+      impact: "Shifted the internet from read-only to read-write, enabling mass participation",
+      icon: "🔄"
+    },
+    {
+      year: "2004",
+      title: "Mozilla Firefox",
+      description: "Mozilla Firefox 1.0 is released, providing an open-source alternative to Internet Explorer.",
+      impact: "Revitalized browser competition and web standards adoption",
+      icon: "🦊"
+    },
+    {
+      year: "2004",
+      title: "Digg",
+      description: "Digg launches as a social news aggregator, allowing users to vote on content.",
+      impact: "Pioneered social news curation and influenced algorithm-based feeds",
+      icon: "👍"
+    },
+    {
+      year: "2005",
+      title: "YouTube",
+      description: "YouTube launches, creating a platform for user-generated video content.",
+      impact: "Democratized video publishing and transformed media consumption",
+      icon: "🎥"
+    },
+    {
+      year: "2005",
+      title: "Ajax Popularized",
+      description: "Jesse James Garrett coins 'Ajax' (Asynchronous JavaScript and XML), enabling dynamic web applications.",
+      impact: "Enabled web applications to function more like desktop software",
+      icon: "⚙️"
+    },
+    {
+      year: "2005",
+      title: "Reddit",
+      description: "Reddit launches as a social news aggregation and discussion website.",
+      impact: "Created one of the largest community-driven content platforms",
+      icon: "🗣️"
+    },
+    {
+      year: "2006",
+      title: "AWS S3 Launch",
+      description: "Amazon launches S3 (Simple Storage Service), pioneering cloud storage services.",
+      impact: "Began transformation of the internet infrastructure to cloud-based services",
+      icon: "☁️"
+    },
+    {
+      year: "2006",
+      title: "Twitter",
+      description: "Twitter launches, introducing microblogging and real-time updates.",
+      impact: "Created new communication format and transformed breaking news dissemination",
+      icon: "🐦"
+    },
+    {
+      year: "2006",
+      title: "Net Neutrality Debate",
+      description: "Net neutrality becomes a major policy issue in the United States and globally.",
+      impact: "Raised awareness about the importance of equal access to internet services",
+      icon: "⚖️"
+    },
+    {
+      year: "2007",
+      title: "iPhone & Mobile Revolution",
+      description: "Apple introduces the iPhone, revolutionizing mobile internet access and creating the app economy.",
+      impact: "Made the internet truly mobile and accessible anywhere, anytime",
+      icon: "📱"
+    },
+    {
+      year: "2007",
+      title: "Kindle",
+      description: "Amazon releases the Kindle, popularizing e-books and digital reading.",
+      impact: "Digitized book distribution and consumption",
+      icon: "📚"
+    },
+    {
+      year: "2007",
+      title: "Android Platform",
+      description: "Google announces Android, an open-source mobile operating system.",
+      impact: "Created the most widely used mobile platform globally",
+      icon: "🤖"
+    },
+    {
+      year: "2008",
+      title: "Cloud Computing",
+      description: "Amazon Web Services, Microsoft Azure, and other cloud platforms gain traction, changing software deployment.",
+      impact: "Democratized access to computing resources and enabled the startup revolution",
+      icon: "☁️"
+    },
+    {
+      year: "2008",
+      title: "HTML5 Draft",
+      description: "First public working draft of HTML5 is published, introducing native audio, video, and canvas elements.",
+      impact: "Reduced dependency on plugins and enabled rich web applications",
+      icon: "🖌️"
+    },
+    {
+      year: "2008",
+      title: "App Store",
+      description: "Apple launches the App Store, creating a marketplace for mobile applications.",
+      impact: "Established the app distribution model that dominated mobile computing",
+      icon: "📲"
+    },
+    {
+      year: "2009",
+      title: "Bitcoin & Blockchain",
+      description: "Satoshi Nakamoto creates Bitcoin, introducing blockchain technology to the world.",
+      impact: "Pioneered decentralized digital currency and trustless transaction verification",
+      icon: "₿"
+    },
+    {
+      year: "2009",
+      title: "WhatsApp",
+      description: "WhatsApp launches, eventually becoming the world's most popular messaging application.",
+      impact: "Shifted global communication from SMS to internet-based messaging",
+      icon: "💬"
+    },
+    {
+      year: "2009",
+      title: "4G Standards",
+      description: "4G wireless standards are finalized by the International Telecommunication Union.",
+      impact: "Set the stage for high-speed mobile internet access",
+      icon: "📶"
+    },
+    {
+      year: "2010",
+      title: "Instagram & Mobile Social",
+      description: "Instagram launches, symbolizing the shift toward visual communication and mobile-first social platforms.",
+      impact: "Transformed social media with visual-first communication and mobile optimization",
+      icon: "📸"
+    },
+    {
+      year: "2010",
+      title: "iPad",
+      description: "Apple introduces the iPad, creating the modern tablet computer category.",
+      impact: "Introduced new form factor for internet consumption",
+      icon: "📱"
+    },
+    {
+      year: "2010",
+      title: "Pinterest",
+      description: "Pinterest launches, focusing on visual discovery and collection of ideas.",
+      impact: "Created visual bookmarking and influenced e-commerce discovery",
+      icon: "📌"
+    },
+    {
+      year: "2011",
+      title: "Snapchat",
+      description: "Snapchat introduces ephemeral content sharing with disappearing messages.",
+      impact: "Pioneered ephemeral social media and influenced privacy expectations",
+      icon: "👻"
+    },
+    {
+      year: "2011",
+      title: "WebRTC",
+      description: "Google releases WebRTC as an open-source project, enabling real-time communication in browsers.",
+      impact: "Enabled peer-to-peer audio, video, and data communication without plugins",
+      icon: "🎥"
+    },
+    {
+      year: "2011",
+      title: "Siri",
+      description: "Apple introduces Siri, bringing voice assistants to mainstream mobile devices.",
+      impact: "Popularized voice as an internet interface",
+      icon: "🗣️"
+    },
+    {
+      year: "2012",
+      title: "4G Networks",
+      description: "4G networks become widespread, enabling video streaming and rich mobile experiences.",
+      impact: "Enabled high-bandwidth applications like mobile video and rich interactive experiences",
+      icon: "📶"
+    },
+    {
+      year: "2012",
+      title: "IPv6 Launch",
+      description: "World IPv6 Launch Day marks the permanent enablement of IPv6 by major ISPs and websites.",
+      impact: "Began addressing the IPv4 address exhaustion problem",
+      icon: "🔢"
+    },
+    {
+      year: "2012",
+      title: "Responsive Web Design",
+      description: "Responsive web design becomes mainstream approach for creating websites that work across devices.",
+      impact: "Adapted web experiences to the multi-device reality",
+      icon: "📐"
+    },
+    {
+      year: "2013",
+      title: "Snowden Revelations",
+      description: "Edward Snowden reveals widespread surveillance programs, raising internet privacy concerns.",
+      impact: "Triggered global debate on digital privacy and surveillance",
+      icon: "🔍"
+    },
+    {
+      year: "2013",
+      title: "Docker",
+      description: "Docker is released, popularizing containerization for software deployment.",
+      impact: "Transformed application development and deployment practices",
+      icon: "🐳"
+    },
+    {
+      year: "2013",
+      title: "PRISM Program Revealed",
+      description: "Details of the NSA's PRISM surveillance program are published by The Guardian and Washington Post.",
+      impact: "Raised awareness about government surveillance of internet communications",
+      icon: "👁️"
+    },
+    {
+      year: "2014",
+      title: "IoT Emergence",
+      description: "The Internet of Things (IoT) begins to expand rapidly with connected home devices and wearables.",
+      impact: "Extended internet connectivity beyond computers and phones to everyday objects",
+      icon: "🏠"
+    },
+    {
+      year: "2014",
+      title: "Net Neutrality Regulations",
+      description: "FCC passes strong net neutrality regulations in the United States (later repealed in 2018).",
+      impact: "Temporarily established legal protection for equal treatment of internet traffic",
+      icon: "⚖️"
+    },
+    {
+      year: "2014",
+      title: "HTTP/2",
+      description: "HTTP/2 protocol is standardized, improving web performance through multiplexing and compression.",
+      impact: "Significantly improved website loading speeds and efficiency",
+      icon: "⚡"
+    },
+    {
+      year: "2015",
+      title: "Progressive Web Apps",
+      description: "Google introduces the concept of Progressive Web Apps, bringing app-like experiences to the web.",
+      impact: "Blurred the line between websites and native applications",
+      icon: "📱"
+    },
+    {
+      year: "2015",
+      title: "EU Right to Be Forgotten",
+      description: "European Court of Justice establishes the 'right to be forgotten' in online search results.",
+      impact: "Created new digital privacy rights and obligations for internet companies",
+      icon: "🧹"
+    },
+    {
+      year: "2015",
+      title: "Smart Speakers",
+      description: "Amazon Echo with Alexa brings voice-controlled smart speakers to consumers.",
+      impact: "Created new voice-first interface for internet services in the home",
+      icon: "🔊"
+    },
+    {
+      year: "2016",
+      title: "AR & VR",
+      description: "Augmented and Virtual Reality gain mainstream attention with Pokémon GO and Oculus Rift.",
+      impact: "Began blurring the lines between digital and physical realities",
+      icon: "🥽"
+    },
+    {
+      year: "2016",
+      title: "TLS 1.3",
+      description: "Transport Layer Security (TLS) 1.3 is finalized, improving web security and performance.",
+      impact: "Strengthened internet communication security and reduced latency",
+      icon: "🔒"
+    },
+    {
+      year: "2016",
+      title: "GDPR Adoption",
+      description: "European Union adopts the General Data Protection Regulation (GDPR).",
+      impact: "Established comprehensive data protection framework affecting global internet services",
+      icon: "🔏"
+    },
+    {
+      year: "2017",
+      title: "Widespread AI Integration",
+      description: "Machine learning and AI become integral to internet services, from search to recommendation systems.",
+      impact: "Enabled personalization and predictive capabilities across internet services",
+      icon: "🤖"
+    },
+    {
+      year: "2017",
+      title: "Net Neutrality Repeal",
+      description: "FCC votes to repeal net neutrality protections in the United States.",
+      impact: "Removed regulations preventing ISPs from blocking or throttling internet traffic",
+      icon: "📛"
+    },
+    {
+      year: "2017",
+      title: "Cryptocurrency Boom",
+      description: "Bitcoin and other cryptocurrencies experience massive growth and mainstream attention.",
+      impact: "Brought blockchain technologies into public awareness",
+      icon: "📈"
+    },
+    {
+      year: "2018",
+      title: "GDPR Enforcement",
+      description: "EU's General Data Protection Regulation (GDPR) goes into effect, transforming data privacy practices.",
+      impact: "Forced internet companies to improve transparency and user control over personal data",
+      icon: "🔐"
+    },
+    {
+      year: "2018",
+      title: "Edge Computing",
+      description: "Edge computing gains traction, moving computation closer to data sources rather than centralized clouds.",
+      impact: "Reduced latency for real-time applications and improved efficiency",
+      icon: "📊"
+    },
+    {
+      year: "2018",
+      title: "WebAssembly 1.0",
+      description: "WebAssembly becomes a W3C recommendation, enabling high-performance applications in the browser.",
+      impact: "Allowed complex software to run at near-native speed in browsers",
+      icon: "🏎️"
+    },
+    {
+        year: "2020",
+        title: "COVID-19 Digital Transformation",
+        description: "Global pandemic accelerates digital adoption across work, education, healthcare, and commerce.",
+        impact: "Compressed years of digital transformation into months, permanently altering internet usage patterns",
+        icon: "🦠"
+        },
+        {
+        year: "2020",
+        title: "5G Network Deployment",
+        description: "Major telecom providers deploy 5G networks in urban centers worldwide.",
+        impact: "Enabled higher bandwidth applications and set foundation for new internet-connected services",
+        icon: "📶"
+        },
+        {
+        year: "2020",
+        title: "Zoom Explosion",
+        description: "Video conferencing platform Zoom grows from 10 million to 300 million daily meeting participants.",
+        impact: "Normalized video calls for remote work, education, and social connection",
+        icon: "🎦"
+        },
+        {
+        year: "2020",
+        title: "TikTok US Controversy",
+        description: "TikTok faces potential US ban over security concerns, highlighting geopolitical internet fragmentation.",
+        impact: "Spotlighted growing 'splinternet' trend and data sovereignty concerns",
+        icon: "🇺🇸"
+        },
+        {
+        year: "2020",
+        title: "GPT-3 Release",
+        description: "OpenAI releases GPT-3, a 175-billion-parameter language model with unprecedented capabilities.",
+        impact: "Demonstrated AI's potential to understand and generate human-like text at scale",
+        icon: "🤖"
+        },
+        {
+        year: "2020",
+        title: "Tech Antitrust Hearings",
+        description: "US Congress conducts major antitrust hearings with CEOs of Amazon, Apple, Facebook, and Google.",
+        impact: "Signaled increasing regulatory scrutiny of internet platform power",
+        icon: "⚖️"
+        },
+        {
+        year: "2020",
+        title: "Bitcoin Halving",
+        description: "Bitcoin undergoes its third halving event, reducing mining rewards to 6.25 BTC.",
+        impact: "Contributed to renewed cryptocurrency bull market and mainstream interest",
+        icon: "₿"
+        },
+        {
+        year: "2020",
+        title: "JEDI Contract Controversy",
+        description: "Microsoft's $10 billion Pentagon JEDI cloud contract faces legal challenges from Amazon.",
+        impact: "Highlighted growing importance of cloud infrastructure in government operations",
+        icon: "☁️"
+        },
+        {
+        year: "2021",
+        title: "NFT Explosion",
+        description: "Non-fungible tokens (NFTs) gain mainstream attention with multi-million dollar digital art sales.",
+        impact: "Created new paradigm for digital ownership and monetization of creative work",
+        icon: "🖼️"
+        },
+        {
+        year: "2021",
+        title: "Metaverse Pivot",
+        description: "Facebook rebrands as Meta, focusing on building the metaverse as the next computing platform.",
+        impact: "Accelerated investment and interest in immersive virtual worlds and digital identity",
+        icon: "🌐"
+        },
+        {
+        year: "2021",
+        title: "Web3 Movement Growth",
+        description: "Web3 vision of decentralized internet built on blockchain gains significant developer and investor traction.",
+        impact: "Proposed alternative model to platform-dominated internet architecture",
+        icon: "🔗"
+        },
+        {
+        year: "2021",
+        title: "Log4j Vulnerability",
+        description: "Critical vulnerability in widely-used Log4j library exposes millions of devices to remote attack.",
+        impact: "Revealed systemic security risks in open-source software supply chain",
+        icon: "🔓"
+        },
+        {
+        year: "2021",
+        title: "El Salvador Bitcoin Adoption",
+        description: "El Salvador becomes first country to adopt Bitcoin as legal tender.",
+        impact: "Set precedent for nation-state cryptocurrency adoption and monetary innovation",
+        icon: "🇸🇻"
+        },
+        {
+        year: "2021",
+        title: "Space Internet Expansion",
+        description: "Starlink reaches 100,000 terminals shipped and expands satellite internet coverage globally.",
+        impact: "Began bringing high-speed internet to previously underserved remote locations",
+        icon: "🛰️"
+        },
+        {
+        year: "2022",
+        title: "ChatGPT Launch",
+        description: "OpenAI releases ChatGPT, bringing conversational AI to the mainstream with over 1 million users in 5 days.",
+        impact: "Transformed public perception of AI capabilities and accessibility",
+        icon: "💬"
+        },
+        {
+        year: "2022",
+        title: "Twitter Acquisition",
+        description: "Elon Musk acquires Twitter for $44 billion and implements significant platform changes.",
+        impact: "Reshaped governance and content policies of a major social media platform",
+        icon: "🐦"
+        },
+        {
+        year: "2022",
+        title: "Crypto Winter",
+        description: "FTX collapse and other failures trigger major cryptocurrency market downturn and heightened regulation.",
+        impact: "Exposed vulnerabilities in crypto ecosystem and accelerated regulatory oversight",
+        icon: "❄️"
+        },
+        {
+        year: "2022",
+        title: "Metaverse Reality Check",
+        description: "Early metaverse offerings face adoption challenges amid high expectations and technical limitations.",
+        impact: "Triggered reassessment of immersive internet timeline and implementation strategies",
+        icon: "🥽"
+        },
+        {
+        year: "2022",
+        title: "EU Digital Services Act",
+        description: "European Union passes comprehensive Digital Services Act to regulate online platforms.",
+        impact: "Established new global benchmark for platform responsibility and algorithmic transparency",
+        icon: "🇪🇺"
+        },
+        {
+        year: "2022",
+        title: "Web Assembly Expansion",
+        description: "WebAssembly extends beyond browsers into server-side and edge computing applications.",
+        impact: "Enabled high-performance computing across diverse internet environments",
+        icon: "⚙️"
+        },
+        {
+        year: "2023",
+        title: "Multimodal AI Models",
+        description: "Release of multimodal AI models capable of processing text, images, and audio simultaneously.",
+        impact: "Enabled more natural human-computer interaction and content understanding",
+        icon: "🧠"
+        },
+        {
+        year: "2023",
+        title: "AI Safety Summit",
+        description: "First global AI Safety Summit held at Bletchley Park with commitment to responsible AI development.",
+        impact: "Established international framework for managing AI risks in connected systems",
+        icon: "🛡️"
+        },
+        {
+        year: "2023",
+        title: "Quantum Internet Testbed",
+        description: "First multi-node quantum internet testbed demonstrated with entanglement-based communication.",
+        impact: "Laid groundwork for fundamentally new internet architecture with quantum properties",
+        icon: "⚛️"
+        },
+        {
+        year: "2023",
+        title: "Tech Layoffs Wave",
+        description: "Major tech companies including Meta, Amazon, Google, and Microsoft conduct significant layoffs.",
+        impact: "Signaled correction in tech industry growth and priorities after pandemic-era expansion",
+        icon: "📉"
+        },
+        {
+        year: "2023",
+        title: "EU AI Act",
+        description: "European Union reaches agreement on comprehensive AI regulations with risk-based framework.",
+        impact: "Created first major regulatory system for artificial intelligence applications",
+        icon: "🤖"
+        },
+        {
+        year: "2023",
+        title: "Web5 Concept",
+        description: "Jack Dorsey and TBD announce Web5 platform combining Web3 decentralization with identity focus.",
+        impact: "Proposed alternative vision for internet evolution emphasizing user-controlled data",
+        icon: "🆔"
+        },
+        {
+        year: "2024",
+        title: "AI Agents Emergence",
+        description: "Autonomous AI agents capable of completing complex tasks across multiple systems gain traction.",
+        impact: "Created new paradigm for automation and human-computer collaboration online",
+        icon: "🤖"
+        },
+        {
+        year: "2024",
+        title: "Widespread Passkey Adoption",
+        description: "Major platforms and services transition from passwords to FIDO2 passkeys for authentication.",
+        impact: "Significantly reduced phishing attacks and improved internet security posture",
+        icon: "🔑"
+        },
+        {
+        year: "2024",
+        title: "Custom AI Assistants",
+        description: "Personalized AI assistants trained on individual users' data become mainstream consumer products.",
+        impact: "Transformed how people interact with information and services online",
+        icon: "👤"
+        },
+        {
+        year: "2024",
+        title: "Digital Identity Standards",
+        description: "Global consortium establishes interoperable standards for digital identity verification.",
+        impact: "Reduced online fraud while preserving privacy and enabling new service models",
+        icon: "🪪"
+        },
+        {
+        year: "2024",
+        title: "Satellite Internet Coverage",
+        description: "Low-Earth orbit satellite networks achieve near-global internet coverage.",
+        impact: "Brought reliable connectivity to previously unserved populations worldwide",
+        icon: "🌍"
+        },
+        {
+        year: "2024",
+        title: "AR Glasses Consumer Launch",
+        description: "First mainstream augmented reality glasses enter consumer market with practical applications.",
+        impact: "Began blending digital and physical realities in everyday internet experiences",
+        icon: "👓"
+        },
+        {
+        year: "2025",
+        title: "Ambient Computing Ecosystem",
+        description: "Seamless ambient computing environments connecting multiple devices and services become standard.",
+        impact: "Transitioned internet interaction from device-centric to environment-centric models",
+        icon: "🏠"
+        },
+        {
+        year: "2025",
+        title: "Decentralized Social Networks",
+        description: "Federated and decentralized social platforms reach critical mass of users seeking alternatives.",
+        impact: "Challenged centralized platform models and expanded user control over social experiences",
+        icon: "🔄"
+        },
+        {
+        year: "2025",
+        title: "Neuromorphic Edge Computing",
+        description: "Neuromorphic chips enabling energy-efficient AI processing deploy across edge computing networks.",
+        impact: "Dramatically reduced latency and energy consumption for internet services",
+        icon: "⚡"
+        },
+        {
+        year: "2025",
+        title: "AI Content Authentication",
+        description: "Global content provenance standard implemented to authenticate human vs. AI-generated media.",
+        impact: "Combated misinformation and rebuilt trust in digital content",
+        icon: "✅"
+        },
+        {
+        year: "2025",
+        title: "6G Early Rollouts",
+        description: "First commercial 6G networks begin deployment in advanced markets with terabit-per-second speeds.",
+        impact: "Enabled new generation of bandwidth-intensive applications and services",
+        icon: "📡"
+        },
+        {
+        year: "2025",
+        title: "Quantum-Resistant Encryption",
+        description: "Post-quantum cryptography becomes standard for sensitive internet communications and finance.",
+        impact: "Protected critical infrastructure from future quantum computing threats",
+        icon: "🔒"
+        },
+        {
+        year: "2026",
+        title: "Digital Twin Internet",
+        description: "Comprehensive digital twin infrastructure connects physical and virtual worlds in real-time.",
+        impact: "Created parallel digital universe mirroring and enhancing physical reality",
+        icon: "🔄"
+        },
+        {
+        year: "2026",
+        title: "Brain-Computer Interfaces",
+        description: "First commercial non-invasive brain-computer interfaces for internet interaction reach market.",
+        impact: "Introduced direct neural communication between humans and digital systems",
+        icon: "🧠"
+        },
+        {
+        year: "2026",
+        title: "Sovereign AI Infrastructure",
+        description: "Nations establish dedicated sovereign AI compute infrastructure for strategic independence.",
+        impact: "Accelerated internet balkanization along geopolitical lines",
+        icon: "🏛️"
+        },
+        {
+        year: "2026",
+        title: "Holographic Conferencing",
+        description: "Holographic telepresence becomes commercially viable for business and personal communication.",
+        impact: "Created more natural and immersive remote presence capabilities",
+        icon: "👥"
+        },
+        {
+        year: "2026",
+        title: "Semantic Web Realization",
+        description: "AI-powered semantic web capabilities enable contextual understanding across internet content.",
+        impact: "Transformed information discovery and integration beyond keyword-based methods",
+        icon: "🕸️"
+        },
+        {
+        year: "2026",
+        title: "Internet of Energy",
+        description: "Decentralized energy grids use internet protocols to dynamically balance production and consumption.",
+        impact: "Revolutionized energy distribution with bidirectional, intelligent power management",
+        icon: "⚡"
+        }
+]
