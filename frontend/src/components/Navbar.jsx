@@ -33,7 +33,7 @@ const Navbar = () => {
               <h1 onClick={() => navigate("/timeline")} className={`cursor-pointer ${getActiveClass("/timeline")}`}>Timeline</h1>
               <h1 
                 onClick={() => navigate("/news")} 
-                className={`cursor-pointer text-red-400 ${getActiveClass("/news")}`}
+                className={`cursor-pointer  text-red-400`}
                 style={{
                   animation: "smoothShake 4s infinite ease-in-out"
                 }}
@@ -69,7 +69,7 @@ const Navbar = () => {
               <h1 onClick={() => { navigate("/timeline"); setOpen(false); }} className={`cursor-pointer ${getActiveClass("/timeline")}`}>Timeline</h1>
               <h1 
                 onClick={() => { navigate("/news"); setOpen(false); }} 
-                className={`cursor-pointer text-red-400 ${getActiveClass("/news")}`}
+                className={`cursor-pointer text-red-400`}
                 style={{
                   animation: "smoothShake 4s infinite ease-in-out"
                 }}

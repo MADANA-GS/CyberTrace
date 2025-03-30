@@ -5206,6 +5206,7 @@ const InternetEvolutionTimeline = () => {
 
   // Create refs for scrolling
   const detailedViewRef = useRef(null);
+  const timelineRef = useRef(null);
   const timelineContainerRef = useRef(null);
   const buttonRefs = useRef([]);
   const searchInputRef = useRef(null);
