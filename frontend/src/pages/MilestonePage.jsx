@@ -17,7 +17,7 @@ const MilestonePage = () => {
   // Add state for the image modal
   const [showImageModal, setShowImageModal] = useState(false);
 
-  //here internetMilestones name data is there dont worrly feel like it is ther 
+  //here internetMilestones name data is there dont worrly feel like it is ther
   const internetMilestones = [
     {
       year: "1957",
@@ -4587,8 +4587,7 @@ const MilestonePage = () => {
     {
       year: "2023",
       title: "Web5 Concept",
-      imageUrl:
-        "https://tse4.mm.bing.net/th?id=OIP.6nKV-a4sNX511hmBIMZLIwHaD4&pid=Api&P=0&h=180",
+      imageUrl:"https://tse4.mm.bing.net/th?id=OIP.6nKV-a4sNX511hmBIMZLIwHaD4&pid=Api&P=0&h=180",
       description:
         "Jack Dorsey and TBD announce Web5 platform combining Web3 decentralization with identity focus.",
       impact:
@@ -5193,7 +5192,79 @@ const MilestonePage = () => {
       ],
     },
   ];
+  // Add this near your other state variables
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
 
+  // Add these functions before the return statement
+  const toggleShareMenu = () => {
+    setShowShareMenu(!showShareMenu);
+  };
+
+  // Improve the click outside handler
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the share menu is open and if the click is outside the button AND menu
+      if (
+        showShareMenu &&
+        !event.target.closest('button[aria-label="Share this milestone"]') &&
+        !event.target.closest(".share-menu-dropdown")
+      ) {
+        setShowShareMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showShareMenu]);
+
+  // Improve the handleShare function
+  const handleShare = async (platform) => {
+    const url = window.location.href;
+    const title = milestone
+      ? `${milestone.title} (${milestone.year})`
+      : "Internet History Timeline";
+    const text = milestone
+      ? `Check out ${milestone.title} from ${milestone.year} on the Internet History Timeline`
+      : "Check out this Internet History Timeline";
+
+    try {
+      switch (platform) {
+        case "copy":
+          try {
+            await navigator.clipboard.writeText(url);
+            setCopySuccess(true);
+            console.log("URL copied successfully"); // Add logging
+            setTimeout(() => setCopySuccess(false), 2000);
+          } catch (err) {
+            console.error("Failed to copy URL: ", err);
+            // Fallback method for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = url;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+              document.execCommand("copy");
+              setCopySuccess(true);
+              setTimeout(() => setCopySuccess(false), 2000);
+            } catch (e) {
+              console.error("Fallback: Couldn't copy", e);
+            }
+            document.body.removeChild(textArea);
+          }
+          break;
+        // Rest of the cases remain the same
+      }
+    } catch (error) {
+      console.error("Share error:", error);
+    }
+
+    // Close the share menu after sharing
+    setShowShareMenu(false);
+  };
   useEffect(() => {
     // Immediately scroll to top when component mounts
     window.scrollTo(0, 0);
@@ -5254,10 +5325,10 @@ const MilestonePage = () => {
 
   // Handle modal open
   const openImageModal = () => {
-    if (milestone && (milestone.imageUrl && !imageError)) {
+    if (milestone && milestone.imageUrl && !imageError) {
       setShowImageModal(true);
       // Prevent background scrolling when modal is open
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
   };
 
@@ -5265,22 +5336,22 @@ const MilestonePage = () => {
   const closeImageModal = () => {
     setShowImageModal(false);
     // Re-enable scrolling when modal is closed
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   // Close modal on escape key press
   useEffect(() => {
     const handleEscKey = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         closeImageModal();
       }
     };
 
-    window.addEventListener('keydown', handleEscKey);
+    window.addEventListener("keydown", handleEscKey);
     return () => {
-      window.removeEventListener('keydown', handleEscKey);
+      window.removeEventListener("keydown", handleEscKey);
       // Make sure to reset overflow when component unmounts if modal was open
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, []);
 
@@ -5322,31 +5393,45 @@ const MilestonePage = () => {
     if (!showImageModal) return null;
 
     return (
-      <div 
+      <div
         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-90 transition-opacity duration-300"
         onClick={closeImageModal}
       >
         <div className="relative max-w-6xl w-full mx-auto flex flex-col items-center">
           {/* Close button */}
-          <button 
+          <button
             className="absolute top-0 right-0 m-4 p-2 text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none z-10"
             onClick={closeImageModal}
             aria-label="Close image"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
-          
+
           {/* Image container - allows for different aspect ratios */}
-          <div className="h-auto max-h-[90vh] w-auto max-w-full" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="h-auto max-h-[90vh] w-auto max-w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={milestone.imageUrl}
               alt={milestone.imageAlt || milestone.title}
               className="object-contain h-auto max-h-[90vh] w-auto max-w-full rounded shadow-lg"
             />
           </div>
-          
+
           {/* Image caption */}
           <div className="mt-4 text-center text-white px-4 py-2 bg-gray-900 bg-opacity-70 rounded-lg">
             <h3 className="text-lg font-semibold">{milestone.title}</h3>
@@ -5371,8 +5456,19 @@ const MilestonePage = () => {
     if (imageLoading) {
       return (
         <div className="w-full max-w-2xl h-80 rounded-lg bg-gray-800 animate-pulse flex items-center justify-center">
-          <svg className="w-16 h-16 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          <svg
+            className="w-16 h-16 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
           </svg>
         </div>
       );
@@ -5380,7 +5476,10 @@ const MilestonePage = () => {
 
     // Return the actual image with click interaction
     return (
-      <div className="w-full max-w-2xl overflow-hidden cursor-pointer group" onClick={openImageModal}>
+      <div
+        className="w-full max-w-2xl overflow-hidden cursor-pointer group"
+        onClick={openImageModal}
+      >
         <div className="relative">
           <img
             src={milestone.imageUrl}
@@ -5390,8 +5489,19 @@ const MilestonePage = () => {
           {/* Overlay with zoom indicator on hover */}
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
             <div className="bg-black bg-opacity-50 rounded-full p-3">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6"
+                />
               </svg>
             </div>
           </div>
@@ -5433,6 +5543,7 @@ const MilestonePage = () => {
         </div>
       );
     }
+    // Add this useEffect hook to handle clicking outside the share menu
 
     return (
       <div>
@@ -5461,11 +5572,72 @@ const MilestonePage = () => {
         </div>
 
         {/* Information Header Section */}
+        {/* Information Header Section */}
         <div className="bg-gradient-to-br from-gray-900 to-black">
           <div className="container mx-auto px-4 py-12">
             <div className="text-center mb-8">
-              <div className="inline-block bg-blue-700 rounded-lg px-3 py-1 text-sm font-semibold mb-4">
-                {milestone.year}
+              <div className="flex justify-center items-center mb-4">
+                <div className="inline-block bg-blue-700 rounded-lg px-3 py-1 text-sm font-semibold mr-3">
+                  {milestone.year}
+                </div>
+                {/* Share Button */}
+                <div className="relative">
+                  <button
+                    onClick={toggleShareMenu}
+                    className="flex items-center gap-1 bg-gray-800 hover:bg-gray-700 rounded-lg px-3 py-2 text-sm font-semibold transition duration-200"
+                    aria-label="Share this milestone"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Share Menu Dropdown */}
+                  {/* Share Menu Dropdown */}
+                  {showShareMenu && (
+                    <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 z-50 share-menu-dropdown">
+                      <div
+                        className="py-1"
+                        role="menu"
+                        aria-orientation="vertical"
+                      >
+                        <button
+                          onClick={() => handleShare("copy")}
+                          className="w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-700 flex items-center"
+                          role="menuitem"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                            />
+                          </svg>
+                          {copySuccess ? "Copied!" : "Copy Link"}
+                        </button>
+                        {/* Rest of the buttons remain the same */}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
                 {milestone.title}
