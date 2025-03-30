@@ -40,7 +40,7 @@ const AboutSection = () => {
     // Using EmailJS to send the email
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
-        console.log('Email sent successfully:', response);
+        // console.log('Email sent successfully:', response);
         setSubmitStatus('sent');
         // Reset form after successful submission
         setFormData({ name: '', email: '', message: '' });
@@ -50,7 +50,7 @@ const AboutSection = () => {
         }, 3000);
       })
       .catch((error) => {
-        console.error('Failed to send email:', error);
+        // console.error('Failed to send email:', error);
         setSubmitStatus('error');
       });
   };

@@ -8,7 +8,6 @@ const DailyTechNews = () => {
   const [category, setCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [imageLoading, setImageLoading] = useState({});
-  const [showHomeText, setShowHomeText] = useState(false);
   const navigate = useNavigate();
 
   // Expanded categories relevant to internet evolution and cyber content
