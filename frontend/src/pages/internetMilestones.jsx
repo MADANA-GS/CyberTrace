@@ -7,12 +7,12 @@ import {
   Info,
   Search,
   X,
+  Check,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const InternetEvolutionTimeline = () => {
-  // Add your internetMilestones array here
-  // const internetMilestones = [...]
+  // here  internetMilestones array is there so asssume that it is already there
   const internetMilestones = [
     {
       year: "1957",
@@ -5188,6 +5188,7 @@ const InternetEvolutionTimeline = () => {
       ],
     },
   ];
+  
 
   useEffect(() => {
     // Immediately scroll to top when component mounts
@@ -5203,6 +5204,7 @@ const InternetEvolutionTimeline = () => {
   const [activeDecade, setActiveDecade] = useState("1990s"); // Track active decade
   const [searchQuery, setSearchQuery] = useState(""); // New state for search
   const [filteredMilestones, setFilteredMilestones] = useState([]); // New state for filtered results
+  const [shareStatus, setShareStatus] = useState(""); // New state for share status
 
   // Create refs for scrolling
   const detailedViewRef = useRef(null);
@@ -5346,6 +5348,54 @@ const InternetEvolutionTimeline = () => {
       const slug = milestone.title.toLowerCase().replace(/\s+/g, "-");
       navigate(`/timeline/${slug}`); // Adjust the route as needed
     }
+  };
+
+  // Share functionality
+  const handleShare = async () => {
+    if (filteredMilestones.length === 0) return;
+    
+    const milestone = filteredMilestones[activeIndex];
+    const shareTitle = `${milestone.year} - ${milestone.title}`;
+    const shareText = `${milestone.description}\n\nHistorical Impact: ${milestone.impact}`;
+    const shareUrl = window.location.href.split('#')[0] + `#milestone-${activeIndex}`;
+    
+    // Check if the Web Share API is available
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl,
+        });
+        setShareStatus("shared");
+        // Reset status after 2 seconds
+        setTimeout(() => setShareStatus(""), 2000);
+      } catch (error) {
+        console.error("Error sharing:", error);
+        // Fall back to clipboard if share was cancelled or failed
+        copyToClipboard(shareTitle, shareText, shareUrl);
+      }
+    } else {
+      // Fall back to clipboard for browsers that don't support Web Share API
+      copyToClipboard(shareTitle, shareText, shareUrl);
+    }
+  };
+  
+  // Helper function to copy milestone info to clipboard
+  const copyToClipboard = (title, text, url) => {
+    const fullText = `${title}\n\n${text}\n\nLearn more: ${url}`;
+    
+    navigator.clipboard.writeText(fullText)
+      .then(() => {
+        setShareStatus("copied");
+        // Reset status after 2 seconds
+        setTimeout(() => setShareStatus(""), 2000);
+      })
+      .catch(err => {
+        console.error('Failed to copy: ', err);
+        setShareStatus("error");
+        setTimeout(() => setShareStatus(""), 2000);
+      });
   };
 
   // Group milestones by decade for timeline view
@@ -5589,7 +5639,7 @@ const InternetEvolutionTimeline = () => {
                 </span>
                 <div className="flex flex-col sm:flex-row justify-between items-start mb-4 sm:mb-6">
                   <div>
-                    <div    onClick={handleReadFullArticle} className="flex items-baseline flex-wrap">
+                    <div onClick={handleReadFullArticle} className="flex items-baseline flex-wrap">
                       <h2 className="text-2xl cursor-pointer sm:text-3xl md:text-4xl font-bold text-white mr-2 sm:mr-4">
                         {filteredMilestones[activeIndex].title}
                       </h2>
@@ -5601,11 +5651,28 @@ const InternetEvolutionTimeline = () => {
                   </div>
                   <div className="flex space-x-2 mt-3 sm:mt-4 md:mt-0">
                     <button
-                      className="p-1.5 sm:p-2 rounded-full bg-blue-900 bg-opacity-50 text-blue-300 hover:bg-blue-800 transition-colors"
+                      onClick={handleShare}
+                      className="p-1.5 sm:p-2 rounded-full bg-blue-900 bg-opacity-50 text-blue-300 hover:bg-blue-800 transition-colors relative"
                       aria-label="Share"
                     >
-                      <Share2 size={16} className="sm:hidden" />
-                      <Share2 size={18} className="hidden sm:block" />
+                      {shareStatus === "shared" || shareStatus === "copied" ? (
+                        <Check size={16} className="sm:hidden text-green-400" />
+                      ) : (
+                        <Share2 size={16} className="sm:hidden" />
+                      )}
+                      {shareStatus === "shared" || shareStatus === "copied" ? (
+                        <Check size={18} className="hidden sm:block text-green-400" />
+                      ) : (
+                        <Share2 size={18} className="hidden sm:block" />
+                      )}
+                      
+                      {shareStatus && (
+                        <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white text-xs py-1 px-2 rounded whitespace-nowrap">
+                          {shareStatus === "shared" ? "Shared!" : 
+                           shareStatus === "copied" ? "Copied to clipboard!" : 
+                           shareStatus === "error" ? "Error sharing" : ""}
+                        </span>
+                      )}
                     </button>
                     <button
                       className="p-1.5 sm:p-2 rounded-full bg-blue-900 bg-opacity-50 text-blue-300 hover:bg-blue-800 transition-colors"
