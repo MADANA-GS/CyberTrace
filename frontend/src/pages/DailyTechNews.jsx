@@ -31,7 +31,7 @@ const DailyTechNews = () => {
     setLoading(true);
     setError(null);
     try {
-      let url = "https://techcrunch.com/wp-json/wp/v2/posts?per_page=12";
+      let url = "https://techcrunch.com/wp-json/wp/v2/posts?per_page=30";
       
       // Add category filter if not "all"
       if (category !== "all") {
